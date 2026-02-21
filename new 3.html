@@ -1,0 +1,2387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNTV Uganda - Your Most Reliable News Source | Breaking News, Sports, Business</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Variables */
+        :root {
+            --primary-blue: #0066cc;
+            --primary-red: #cc0000;
+            --secondary-red: #8a1538;
+            --dark-blue: #162550;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #333333;
+            --white: #ffffff;
+            --black: #000000;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-lg: 0 5px 20px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 0.95rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-red);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+        
+        /* Header Styles */
+        .header-top {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-top-left {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .header-top-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary-red);
+            transform: translateY(-2px);
+        }
+        
+        /* Main Header */
+        .main-header {
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            background-color: var(--white);
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+            font-weight: 900;
+            font-size: 2.8rem;
+            letter-spacing: -1.5px;
+            display: flex;
+            position: relative;
+        }
+        
+        .logo-d {
+            color: var(--primary-blue);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-ntv {
+            color: var(--primary-red);
+            position: relative;
+            margin-left: -5px;
+        }
+        
+        .logo-d::after {
+            content: '';
+            position: absolute;
+            right: -2px;
+            top: 2px;
+            width: 4px;
+            height: 42px;
+            background-color: var(--primary-red);
+            transform: skewX(-15deg);
+            z-index: 1;
+        }
+        
+        .slogan {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            font-style: italic;
+            padding-left: 15px;
+            border-left: 2px solid var(--primary-red);
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navigation {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark-blue);
+            position: relative;
+            padding: 5px 0;
+            font-size: 1rem;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-red);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-input {
+            padding: 8px 15px 8px 35px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+            width: 220px;
+            font-size: 0.9rem;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--dark-gray);
+        }
+        
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            background-color: var(--light-gray);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            cursor: pointer;
+        }
+        
+        /* Breaking News Ticker */
+        .breaking-news-ticker {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ticker-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .ticker-label {
+            background-color: rgba(0,0,0,0.2);
+            padding: 5px 15px;
+            font-weight: 700;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .ticker-content {
+            flex: 1;
+            padding-left: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        .ticker-item {
+            display: inline-block;
+            padding-right: 50px;
+            font-weight: 600;
+            animation: ticker 30s linear infinite;
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            padding: 30px 0;
+            background: linear-gradient(to right, #f9f9f9 0%, #ffffff 100%);
+        }
+        
+        .hero-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        .live-player {
+            background-color: var(--dark-blue);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .player-header {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--white);
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .player-content {
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1574267432553-4b4628081c31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .player-placeholder {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .player-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .player-placeholder h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .top-headlines {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .headlines-header {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 15px 25px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .headlines-content {
+            padding: 20px;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+        
+        .headline-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .headline-item:hover {
+            background-color: var(--light-gray);
+            padding-left: 10px;
+            padding-right: 10px;
+            margin: 0 -10px;
+            border-radius: 4px;
+        }
+        
+        .headline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .headline-item h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+        
+        .headline-time {
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* News Carousel */
+        .news-carousel-section {
+            padding: 50px 0 30px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--dark-blue);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-red);
+        }
+        
+        .carousel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .carousel-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-btn:hover {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+        
+        .carousel-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .news-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-category {
+            margin-bottom: 12px;
+        }
+        
+        .category-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .tag-breaking {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+        
+        .tag-politics {
+            background-color: var(--dark-blue);
+            color: var(--white);
+        }
+        
+        .tag-business {
+            background-color: #059669;
+            color: var(--white);
+        }
+        
+        .tag-sports {
+            background-color: #3b82f6;
+            color: var(--white);
+        }
+        
+        .tag-lifestyle {
+            background-color: #8b5cf6;
+            color: var(--white);
+        }
+        
+        .tag-entertainment {
+            background-color: #ec4899;
+            color: var(--white);
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .card-excerpt {
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.85rem;
+        }
+        
+        /* Live Section */
+        .live-section {
+            padding: 40px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .live-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        .live-news {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .live-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .live-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: var(--light-gray);
+            transition: var(--transition);
+        }
+        
+        .live-item:hover {
+            background-color: var(--medium-gray);
+        }
+        
+        .live-item-time {
+            font-weight: 700;
+            color: var(--primary-red);
+            min-width: 60px;
+        }
+        
+        .live-sports {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .sports-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .sport-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--light-gray);
+            transition: var(--transition);
+        }
+        
+        .sport-item:hover {
+            border-color: var(--primary-red);
+        }
+        
+        .sport-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Current Affairs */
+        .current-affairs-section {
+            padding: 40px 0;
+        }
+        
+        .tab-container {
+            margin-top: 20px;
+        }
+        
+        .tab-header {
+            display: flex;
+            border-bottom: 2px solid var(--light-gray);
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            font-weight: 600;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--dark-gray);
+            position: relative;
+            white-space: nowrap;
+        }
+        
+        .tab-btn.active {
+            color: var(--primary-red);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-red);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .tab-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        /* Business Section */
+        .business-section {
+            padding: 40px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .business-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .business-news {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .business-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .business-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .business-item:last-child {
+            border-bottom: none;
+        }
+        
+        .business-featured {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .featured-slider {
+            position: relative;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--white);
+            padding: 20px;
+        }
+        
+        /* Lifestyle Section */
+        .lifestyle-section {
+            padding: 40px 0;
+        }
+        
+        .lifestyle-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        .lifestyle-featured {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .featured-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .featured-card.large {
+            grid-column: span 2;
+        }
+        
+        .lifestyle-sidebar {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .sidebar-stories {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .sidebar-story {
+            display: flex;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .sidebar-story:last-child {
+            border-bottom: none;
+        }
+        
+        /* Sports Section */
+        .sports-section {
+            padding: 40px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .sports-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .sports-tab {
+            padding: 8px 20px;
+            background-color: var(--white);
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--light-gray);
+            transition: var(--transition);
+        }
+        
+        .sports-tab.active {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border-color: var(--primary-red);
+        }
+        
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        /* Tournament Dashboard */
+        .tournament-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #0d1b3e 100%);
+            color: var(--white);
+        }
+        
+        .tournament-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .tournament-header h2 {
+            font-size: 2.8rem;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+        
+        .tournament-header p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .tournament-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tournament-tab {
+            padding: 12px 25px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .tournament-tab.active {
+            background-color: var(--primary-red);
+            border-color: var(--primary-red);
+            color: var(--white);
+        }
+        
+        .tournament-content {
+            display: none;
+        }
+        
+        .tournament-content.active {
+            display: block;
+        }
+        
+        .tournament-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        
+        .tournament-sidebar {
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .tournament-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background-color: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        
+        .tournament-main {
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .team-card {
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+        }
+        
+        .team-card:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+            border-color: var(--primary-red);
+        }
+        
+        .team-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-red) 0%, #6b1120 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin: 0 auto 15px;
+        }
+        
+        .team-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .team-district {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 8px;
+        }
+        
+        .team-group {
+            display: inline-block;
+            padding: 3px 12px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-about {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-heading {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+        
+        .platform-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .platform-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .platform-link:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-header {
+            padding: 20px;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-container,
+            .live-container,
+            .business-container,
+            .lifestyle-container,
+            .tournament-grid,
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .carousel-container,
+            .tab-grid,
+            .sports-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .lifestyle-featured {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-card.large {
+                grid-column: span 1;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .tournament-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .teams-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .navigation {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow-lg);
+                z-index: 1000;
+            }
+            
+            .navigation.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .header-top-left, .header-top-right {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .search-input {
+                width: 150px;
+            }
+            
+            .carousel-container,
+            .tab-grid,
+            .sports-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .Masaza Cup-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .search-input {
+                width: 100%;
+            }
+            
+            .logo-text {
+                font-size: 2.2rem;
+            }
+            
+            .slogan {
+                font-size: 0.8rem;
+            }
+            
+            .Masaza Cup-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .Masaza Cup-tab {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-left">
+                    <span><i class="fas fa-phone-alt"></i> +256 200 999 594</span>
+                    <span><i class="fas fa-envelope"></i> info@dntvuganda.com</span>
+                    <span><i class="fas fa-clock"></i> 24/7 News Coverage</span>
+                </div>
+                <div class="header-top-right">
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1FR7YMsJUg/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/DntvUganda" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://youtube.com/@dntvuganda?si=dTUt4C-jc6WhzexE" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@dntv.uganda?_r=1&_t=ZS-93mhtSJ0FC0" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbBjO4j8fewk923E6A1D" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <div class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                        <span>Dark Mode</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-header">
+            <div class="container">
+                <div class="logo-container">
+                    <div class="logo">
+                        <div class="logo-text">
+                            <span class="logo-d">D</span>
+                            <span class="logo-ntv">NTV</span>
+                        </div>
+                    </div>
+                    <div class="slogan">We are Your Word Reliable</div>
+                </div>
+                
+                <nav class="navigation" id="mainNav">
+                    <a href="#" class="nav-link active">Home</a>
+                    <a href="#" class="nav-link">News</a>
+                    <a href="#" class="nav-link">Politics</a>
+                    <a href="#" class="nav-link">Business</a>
+                    <a href="#" class="nav-link">Sports</a>
+                    <a href="#" class="nav-link">Entertainment</a>
+                    <a href="#" class="nav-link">Lifestyle</a>
+                    <a href="#" class="nav-link">Tournament</a>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="search-input" placeholder="Search news...">
+                    </div>
+                    <button class="btn btn-primary">Subscribe</button>
+                    <div class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Breaking News Ticker -->
+        <div class="breaking-news-ticker">
+            <div class="container">
+                <div class="ticker-container">
+                    <div class="ticker-label">
+                        <i class="fas fa-bolt"></i> BREAKING
+                    </div>
+                    <div class="ticker-content">
+                        <div class="ticker-item">Parliament passes controversial education bill after marathon session • Uganda shilling strengthens against dollar amid Central Bank interventions • National team coach announces squad for upcoming AFCON qualifiers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-container">
+                <div class="live-player">
+                    <div class="player-header">
+                        <div class="live-badge">
+                            <div class="live-dot"></div>
+                            <span>LIVE NOW</span>
+                        </div>
+                        <div>DNTV Uganda - 24/7 News Channel</div>
+                    </div>
+                    <div class="player-content">
+                        <div class="player-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <h3>DNTV Uganda Live Broadcast</h3>
+                            <p>Watch our 24/7 news coverage and updates from across Uganda</p>
+                            <button class="btn btn-primary" style="margin-top: 20px;">Watch Live Stream</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="top-headlines">
+                    <div class="headlines-header">
+                        <span>TOP HEADLINES</span>
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="headlines-content">
+                        <div class="headline-item">
+                            <h4>President to Address Nation on Economic Recovery Plan</h4>
+                            <div class="headline-time">
+                                <i class="far fa-clock"></i> 15 minutes ago
+                            </div>
+                        </div>
+                        <div class="headline-item">
+                            <h4>Supreme Court Hears Landmark Constitutional Petition</h4>
+                            <div class="headline-time">
+                                <i class="far fa-clock"></i> 42 minutes ago
+                            </div>
+                        </div>
+                        <div class="headline-item">
+                            <h4>Agricultural Exports Rise by 23% in Q1 2024</h4>
+                            <div class="headline-time">
+                                <i class="far fa-clock"></i> 1 hour ago
+                            </div>
+                        </div>
+                        <div class="headline-item">
+                            <h4>New COVID Variant Detected, Health Ministry Issues Alert</h4>
+                            <div class="headline-time">
+                                <i class="far fa-clock"></i> 2 hours ago
+                            </div>
+                        </div>
+                        <div class="headline-item">
+                            <h4>Kampala City Council Approves New Transport Master Plan</h4>
+                            <div class="headline-time">
+                                <i class="far fa-clock"></i> 3 hours ago
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Carousel -->
+    <section class="news-carousel-section">
+        <div class="container">
+            <div class="carousel-header">
+                <h2 class="section-title">Catch Up With The News</h2>
+                <div class="carousel-controls">
+                    <div class="carousel-btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="carousel-btn" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-container">
+                <div class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Parliament News">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">
+                            <span class="category-tag tag-politics">Politics</span>
+                        </div>
+                        <h3 class="card-title">New Cabinet Ministers Sworn In After Major Government Reshuffle</h3>
+                        <p class="card-excerpt">President appoints 15 new cabinet ministers in a major government reshuffle aimed at improving service delivery and economic recovery.</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> John Musoke</span>
+                            <span><i class="far fa-calendar"></i> April 15, 2024</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business News">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">
+                            <span class="category-tag tag-business">Business</span>
+                        </div>
+                        <h3 class="card-title">Bank of Uganda Maintains Key Interest Rate Amid Inflation Concerns</h3>
+                        <p class="card-excerpt">Central bank holds rate steady at 9.5% as inflation shows signs of easing, economic growth projections revised upwards to 6.2%.</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> Sarah Nalwoga</span>
+                            <span><i class="far fa-calendar"></i> April 14, 2024</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sports News">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">
+                            <span class="category-tag tag-sports">Sports</span>
+                        </div>
+                        <h3 class="card-title">Uganda Cranes Qualify for AFCON 2025 After Dramatic Win</h3>
+                        <p class="card-excerpt">National football team secures spot in African Cup of Nations with dramatic 2-1 win over neighboring rivals in final qualifier match.</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> David Ssemwogerere</span>
+                            <span><i class="far fa-calendar"></i> April 13, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Section -->
+    <section class="live-section">
+        <div class="container">
+            <h2 class="section-title">Live Updates & Sports Highlights</h2>
+            <div class="live-container">
+                <div class="live-news">
+                    <h3 style="margin-bottom: 20px; color: var(--dark-blue);">Live News Feed <span class="live-badge" style="font-size: 0.8rem; display: inline-flex; margin-left: 10px;"><div class="live-dot"></div> UPDATING</span></h3>
+                    <div class="live-list">
+                        <div class="live-item">
+                            <div class="live-item-time">14:30</div>
+                            <div class="live-item-content">
+                                <h4>Energy Minister Announces Three New Power Plant Projects</h4>
+                                <p>Three new hydroelectric power plants to be constructed in western Uganda at a cost of $1.2 billion.</p>
+                            </div>
+                        </div>
+                        <div class="live-item">
+                            <div class="live-item-time">14:15</div>
+                            <div class="live-item-content">
+                                <h4>Major Traffic Disruption on Kampala-Entebbe Highway</h4>
+                                <p>Multi-vehicle accident causes major delays; police advise alternative routes via Northern Bypass.</p>
+                            </div>
+                        </div>
+                        <div class="live-item">
+                            <div class="live-item-time">13:45</div>
+                            <div class="live-item-content">
+                                <h4>Court Adjourns High-Profile Corruption Case to Next Month</h4>
+                                <p>Trial of former minister postponed to May 15th over presentation of new evidence by defense.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="live-sports">
+                    <h3 style="margin-bottom: 20px; color: var(--dark-blue);">Sports Highlights</h3>
+                    <div class="sports-list">
+                        <div class="sport-item">
+                            <div class="sport-icon">
+                                <i class="fas fa-futbol"></i>
+                            </div>
+                            <div>
+                                <h4>Football: SC Villa vs. KCCA FC</h4>
+                                <p>Live score: 2-1 | 65' minute | Mandela National Stadium</p>
+                            </div>
+                        </div>
+                        <div class="sport-item">
+                            <div class="sport-icon">
+                                <i class="fas fa-basketball-ball"></i>
+                            </div>
+                            <div>
+                                <h4>Basketball: City Oilers Win Championship</h4>
+                                <p>Defeat Falcons 78-72 in finals to claim 8th consecutive title</p>
+                            </div>
+                        </div>
+                        <div class="sport-item">
+                            <div class="sport-icon">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <div>
+                                <h4>Athletics: Gold Medal in 10,000m at African Games</h4>
+                                <p>Ugandan athlete sets new national record of 27:45.12</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Affairs -->
+    <section class="current-affairs-section">
+        <div class="container">
+            <h2 class="section-title">Current Affairs & Shows</h2>
+            <div class="tab-container">
+                <div class="tab-header">
+                    <button class="tab-btn active" data-tab="tab1">Today's Shows</button>
+                    <button class="tab-btn" data-tab="tab2">Special Reports</button>
+                    <button class="tab-btn" data-tab="tab3">Interviews</button>
+                </div>
+                
+                <div class="tab-content active" id="tab1">
+                    <div class="tab-grid">
+                        <div class="news-card">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1589256469067-ea99122bbdc4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Talk Show">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-category">
+                                    <span class="category-tag tag-politics">Politics</span>
+                                </div>
+                                <h3 class="card-title">The Morning Brief with Rebecca Nalunkuuma</h3>
+                                <p class="card-excerpt">Daily analysis of top news stories and what they mean for you. Today's topic: The new education bill and its implications.</p>
+                                <div class="card-meta">
+                                    <span><i class="far fa-clock"></i> 9:00 AM - 10:30 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1551135049-8a33b2a6c5e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Debate Show">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-category">
+                                    <span class="category-tag tag-politics">Debate</span>
+                                </div>
+                                <h3 class="card-title">Point Blank: The Big Debate on Economic Recovery</h3>
+                                <p class="card-excerpt">Politicians and economic experts clash on the best path forward for Uganda's economic recovery post-pandemic.</p>
+                                <div class="card-meta">
+                                    <span><i class="far fa-clock"></i> 8:00 PM - 9:30 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Show">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-category">
+                                    <span class="category-tag tag-business">Business</span>
+                                </div>
+                                <h3 class="card-title">Money Matters: Business Today with Financial Experts</h3>
+                                <p class="card-excerpt">Market analysis and interviews with business leaders about the impact of the new interest rate decision.</p>
+                                <div class="card-meta">
+                                    <span><i class="far fa-clock"></i> 7:30 PM - 8:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Section -->
+    <section class="business-section">
+        <div class="container">
+            <h2 class="section-title">Business & Finance</h2>
+            <div class="business-container">
+                <div class="business-news">
+                    <h3 style="margin-bottom: 20px; color: var(--dark-blue);">Market Updates</h3>
+                    <div class="business-list">
+                        <div class="business-item">
+                            <h4>USE All-Share Index Rises 2.3% Amid Positive Earnings Reports</h4>
+                            <p>Uganda Securities Exchange records gains as banking stocks lead rally following strong Q1 results.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="business-item">
+                            <h4>Agriculture Export Earnings Increase by 18% in First Quarter</h4>
+                            <p>Coffee, tea, and cocoa exports drive growth despite global market volatility and shipping challenges.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 4 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="business-item">
+                            <h4>New Tax Proposals Worry Small Business Owners and Traders</h4>
+                            <p>Business community expresses concerns over proposed digital tax measures in new finance bill.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 6 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="business-featured">
+                    <h3 style="margin-bottom: 20px; color: var(--dark-blue);">Featured Business Story</h3>
+                    <div class="featured-slider">
+                        <div class="slide active">
+                            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Feature">
+                            <div class="slide-content">
+                                <h3>Uganda's Tech Startup Ecosystem Booms with Record Investments</h3>
+                                <p>Investment in local startups grows 300% in three years as digital transformation accelerates</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifestyle Section -->
+    <section class="lifestyle-section">
+        <div class="container">
+            <h2 class="section-title">Lifestyle & Entertainment</h2>
+            <div class="lifestyle-container">
+                <div class="lifestyle-featured">
+                    <div class="featured-card large">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lifestyle Feature">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-category">
+                                <span class="category-tag tag-lifestyle">Culture</span>
+                            </div>
+                            <h3 class="card-title">Kampala Arts Festival Returns with Grand Celebrations After 3-Year Hiatus</h3>
+                            <p class="card-excerpt">Annual festival showcases Uganda's diverse cultural heritage through music, dance, and visual arts with participants from 20 countries.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-user"></i> Patricia Nansubuga</span>
+                                <span><i class="far fa-calendar"></i> April 12, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Food Feature">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-category">
+                                <span class="category-tag tag-lifestyle">Food & Drink</span>
+                            </div>
+                            <h3 class="card-title">Ugandan Cuisine Goes Global: Local Chefs Win International Awards</h3>
+                            <p class="card-excerpt">Traditional dishes like luwombo and matoke are being reimagined and introduced to international audiences.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-user"></i> James Kato</span>
+                                <span><i class="far fa-calendar"></i> April 11, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lifestyle-sidebar">
+                    <h3 style="margin-bottom: 20px; color: var(--dark-blue);">More Lifestyle Stories</h3>
+                    <div class="sidebar-stories">
+                        <div class="sidebar-story">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Fashion Story">
+                            <div>
+                                <h4>Kampala Fashion Week Showcases Emerging Local Designers</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-calendar"></i> April 10, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar-story">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Health Story">
+                            <div>
+                                <h4>Wellness Trends Taking Over Kampala: Yoga, Meditation Grow</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-calendar"></i> April 9, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournament Dashboard -->
+    <section class="tournament-section">
+        <div class="container">
+            <div class="tournament-header">
+                <h2>Buganda Kingdom Masaza Cup 2026</h2>
+                <p>Uganda's Premier Regional Football Tournament • 18 Teams • 4 Groups • 5 Stadiums</p>
+            </div>
+            
+            <div class="tournament-tabs">
+                <div class="tournament-tab active" data-tournament-tab="teams">Teams</div>
+                <div class="tournament-tab" data-tournament-tab="groups">Groups</div>
+                <div class="tournament-tab" data-tournament-tab="fixtures">Fixtures</div>
+                <div class="tournament-tab" data-tournament-tab="standings">Standings</div>
+            </div>
+            
+            <!-- Teams Tab -->
+            <div class="tournament-content active" id="teamsTab">
+                <div class="tournament-grid">
+                    <div class="tournament-sidebar">
+                        <h3 style="margin-bottom: 20px; color: var(--white);">Tournament Overview</h3>
+                        <div class="tournament-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">18</div>
+                                <div class="stat-label">Teams</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">4</div>
+                                <div class="stat-label">Groups</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">51</div>
+                                <div class="stat-label">Matches</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">Stadiums</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 30px;">
+                            <h4 style="margin-bottom: 15px; color: var(--white);">Tournament Schedule</h4>
+                            <div style="background-color: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                                <p><strong>Group Stage:</strong> June 1 - July 15, 2026</p>
+                                <p><strong>Quarter-finals:</strong> July 20-25, 2026</p>
+                                <p><strong>Semi-finals:</strong> July 30 - Aug 2, 2026</p>
+                                <p><strong>Final Match:</strong> August 15, 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tournament-main">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                            <h3 style="color: var(--white);">All Participating Teams</h3>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" id="teamSearch" placeholder="Search teams..." style="padding: 8px 15px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); background-color: rgba(255,255,255,0.05); color: white; width: 200px;">
+                                <select id="groupFilter" style="padding: 8px 15px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); background-color: rgba(255,255,255,0.05); color: white;">
+                                    <option value="all">All Groups</option>
+                                    <option value="A">Group A</option>
+                                    <option value="B">Group B</option>
+                                    <option value="C">Group C</option>
+                                    <option value="D">Group D</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="teams-grid" id="teamsContainer">
+                            <!-- Teams will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Groups Tab -->
+            <div class="tournament-content" id="groupsTab">
+                <div class="tournament-grid">
+                    <div class="tournament-sidebar">
+                        <h3 style="margin-bottom: 20px; color: var(--white);">Groups Overview</h3>
+                        <div style="background-color: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">
+                            <p>The tournament features 4 groups with a total of 18 teams competing for the prestigious Masaza Cup.</p>
+                        </div>
+                        <div style="background-color: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                            <h4 style="margin-bottom: 10px; color: var(--white);">Tournament Format</h4>
+                            <p>• Group stage: Round-robin format</p>
+                            <p>• Top 2 from each group advance</p>
+                            <p>• Knockout stage: Quarter-finals, semi-finals, final</p>
+                        </div>
+                    </div>
+                    <div class="tournament-main">
+                        <h3 style="margin-bottom: 25px; color: var(--white);">Tournament Groups</h3>
+                        <div id="groupsContainer">
+                            <!-- Groups will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fixtures Tab -->
+            <div class="tournament-content" id="fixturesTab">
+                <div class="tournament-grid">
+                    <div class="tournament-sidebar">
+                        <h3 style="margin-bottom: 20px; color: var(--white);">Upcoming Matches</h3>
+                        <div style="background-color: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                            <h4 style="margin-bottom: 10px; color: var(--white);">Next Match</h4>
+                            <p><strong>Buddu vs Bulemeezi</strong></p>
+                            <p>June 1, 2026 • 16:00</p>
+                            <p>Masaka Recreational Grounds</p>
+                        </div>
+                    </div>
+                    <div class="tournament-main">
+                        <h3 style="margin-bottom: 25px; color: var(--white);">Tournament Fixtures</h3>
+                        <div id="fixturesContainer">
+                            <!-- Fixtures will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports Section -->
+    <section class="sports-section">
+        <div class="container">
+            <h2 class="section-title">Sports News</h2>
+            <div class="sports-tabs">
+                <div class="sports-tab active">Football</div>
+                <div class="sports-tab">Basketball</div>
+                <div class="sports-tab">Athletics</div>
+                <div class="sports-tab">Rugby</div>
+            </div>
+            
+            <div class="sports-grid">
+                <div class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Football News">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">
+                            <span class="category-tag tag-sports">Football</span>
+                        </div>
+                        <h3 class="card-title">Local League Announces Record UGX 15 Billion Sponsorship Deal</h3>
+                        <p class="card-excerpt">The Uganda Premier League secures its largest-ever sponsorship deal, with funds earmarked for facility upgrades and player welfare.</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> Michael Ouma</span>
+                            <span><i class="far fa-calendar"></i> April 14, 2024</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Basketball News">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">
+                            <span class="category-tag tag-sports">Basketball</span>
+                        </div>
+                        <h3 class="card-title">National Basketball Team Prepares for FIBA Africa Cup Qualifiers</h3>
+                        <p class="card-excerpt">Two-week training camp begins in Kampala ahead of crucial qualifiers for the 2025 FIBA Africa Cup of Nations tournament.</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> Susan Nakiwala</span>
+                            <span><i class="far fa-calendar"></i> April 13, 2024</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1552674605-db6ffd8facb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Athletics News">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">
+                            <span class="category-tag tag-sports">Athletics</span>
+                        </div>
+                        <h3 class="card-title">Ugandan Athletes Shine at World Athletics Championships</h3>
+                        <p class="card-excerpt">Gold and silver medals in long-distance events highlight successful campaign for Team Uganda at global championships.</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> Robert Ssentongo</span>
+                            <span><i class="far fa-calendar"></i> April 12, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo-text" style="color: white; font-size: 2.5rem;">
+                            <span style="color: #0066cc;">D</span>
+                            <span style="color: #cc0000;">NTV</span>
+                        </div>
+                        <div style="font-style: italic; color: rgba(255,255,255,0.7); margin-top: 5px;">We are Your Word Reliable</div>
+                    </div>
+                    <p class="footer-about">
+                        DNTV Uganda is a leading 24/7 news television station dedicated to delivering accurate, timely, and comprehensive news coverage across Uganda and beyond. We are committed to journalistic excellence and being your most reliable source of information.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1FR7YMsJUg/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/DntvUganda" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://youtube.com/@dntvuganda?si=dTUt4C-jc6WhzexE" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@dntv.uganda?_r=1&_t=ZS-93mhtSJ0FC0" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbBjO4j8fewk923E6A1D" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About DNTV</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Politics</a></li>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Sports</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-heading">News Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Breaking News</a></li>
+                        <li><a href="#">Politics & Governance</a></li>
+                        <li><a href="#">Business & Finance</a></li>
+                        <li><a href="#">Sports</a></li>
+                        <li><a href="#">Entertainment</a></li>
+                        <li><a href="#">Lifestyle</a></li>
+                        <li><a href="#">Weather</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-heading">Our Platforms</h3>
+                    <div class="platform-links">
+                        <a href="https://www.Integrate.com/DNTVUganda" class="platform-link" target="_blank">
+                            <i class="fas fa-globe"></i>
+                            <span>Official Website</span>
+                        </a>
+                        <a href="#" class="platform-link">
+                            <i class="fas fa-tv"></i>
+                            <span>Live TV</span>
+                        </a>
+                        <a href="#" class="platform-link">
+                            <i class="fas fa-podcast"></i>
+                            <span>Podcasts</span>
+                        </a>
+                        <a href="#" class="platform-link">
+                            <i class="fas fa-newspaper"></i>
+                            <span>E-Paper</span>
+                        </a>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h4 style="margin-bottom: 10px; font-size: 1rem; color: var(--white);">Contact Information</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">
+                            <i class="fas fa-map-marker-alt"></i> Plot 24, Lumumba Avenue, Kampala, Uganda<br>
+                            <i class="fas fa-phone"></i> +256 200 999 594<br>
+                            <i class="fas fa-envelope"></i> info@dntvuganda.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 DNTV Uganda. All Rights Reserved. | Designed for Digital Excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tournament Data
+        const tournamentTeams = [
+            { id: 1, name: "Buddu", district: "Masaka", group: "A", stadium: "Masaka Recreational Grounds" },
+            { id: 2, name: "Bulemeezi", district: "Luweero", group: "A", stadium: "Kakindu Stadium" },
+            { id: 3, name: "Busiro", district: "Wakiso", group: "A", stadium: "Kabaka Kyabaggu Stadium" },
+            { id: 4, name: "Kyaddondo", district: "Wakiso", group: "A", stadium: "Nakivubo Stadium" },
+            { id: 5, name: "Gomba", district: "Gomba", group: "A", stadium: "Gomba Playground" },
+            { id: 6, name: "Butambala", district: "Butambala", group: "B", stadium: "Butambala Grounds" },
+            { id: 7, name: "Mawokota", district: "Mpigi", group: "B", stadium: "Mpigi Playground" },
+            { id: 8, name: "Buvuma", district: "Buvuma", group: "B", stadium: "Buvuma Island Grounds" },
+            { id: 9, name: "Busujju", district: "Mityana", group: "B", stadium: "Mityana Playground" },
+            { id: 10, name: "Bugerere", district: "Kayunga", group: "C", stadium: "Kayunga Playground" },
+            { id: 11, name: "Buweekula", district: "Mubende", group: "C", stadium: "Mubende Playground" },
+            { id: 12, name: "Kooki", district: "Rakai", group: "C", stadium: "Rakai Playground" },
+            { id: 13, name: "Kabula", district: "Lyantonde", group: "C", stadium: "Lyantonde Playground" },
+            { id: 14, name: "Ssingo", district: "Mubende", group: "D", stadium: "Mubende Playground" },
+            { id: 15, name: "Mawogola", district: "Sembabule", group: "D", stadium: "Sembabule Playground" },
+            { id: 16, name: "Kyangwali", district: "Kibaale", group: "D", stadium: "Kibaale Playground" },
+            { id: 17, name: "Bujjumba", district: "Kalangala", group: "D", stadium: "Kalangala Grounds" },
+            { id: 18, name: "Kiboga", district: "Kiboga", group: "D", stadium: "Kiboga Playground" }
+        ];
+
+        const tournamentGroups = {
+            "A": ["Buddu", "Bulemeezi", "Busiro", "Kyaddondo", "Gomba"],
+            "B": ["Butambala", "Mawokota", "Buvuma", "Busujju"],
+            "C": ["Bugerere", "Buweekula", "Kooki", "Kabula"],
+            "D": ["Ssingo", "Mawogola", "Kyangwali", "Bujjumba", "Kiboga"]
+        };
+
+        const tournamentFixtures = [
+            { id: 1, team1: "Buddu", team2: "Bulemeezi", date: "2026-06-01", time: "16:00", venue: "Masaka Recreational Grounds", group: "A" },
+            { id: 2, team1: "Busiro", team2: "Kyaddondo", date: "2026-06-02", time: "14:00", venue: "Kabaka Kyabaggu Stadium", group: "A" },
+            { id: 3, team1: "Gomba", team2: "Buddu", date: "2026-06-08", time: "16:00", venue: "Gomba Playground", group: "A" },
+            { id: 4, team1: "Butambala", team2: "Mawokota", date: "2026-06-03", time: "15:00", venue: "Butambala Grounds", group: "B" },
+            { id: 5, team1: "Buvuma", team2: "Busujju", date: "2026-06-04", time: "13:00", venue: "Buvuma Island Grounds", group: "B" },
+            { id: 6, team1: "Bugerere", team2: "Buweekula", date: "2026-06-05", time: "16:00", venue: "Kayunga Playground", group: "C" }
+        ];
+
+        // Initialize Tournament Dashboard
+        function initTournamentDashboard() {
+            populateTeams();
+            populateGroups();
+            populateFixtures();
+            setupTeamFilters();
+            setupTournamentTabs();
+        }
+
+        // Populate teams in the teams grid
+        function populateTeams() {
+            const teamsContainer = document.getElementById('teamsContainer');
+            teamsContainer.innerHTML = '';
+            
+            tournamentTeams.forEach(team => {
+                const teamCard = document.createElement('div');
+                teamCard.className = 'team-card';
+                teamCard.setAttribute('data-team-id', team.id);
+                teamCard.setAttribute('data-group', team.group);
+                teamCard.setAttribute('data-name', team.name.toLowerCase());
+                
+                teamCard.innerHTML = `
+                    <div class="team-logo">${team.name.substring(0, 2)}</div>
+                    <div class="team-name">${team.name}</div>
+                    <div class="team-district">${team.district}</div>
+                    <div class="team-group">Group ${team.group}</div>
+                `;
+                
+                teamsContainer.appendChild(teamCard);
+            });
+        }
+
+        // Populate groups in the groups tab
+        function populateGroups() {
+            const groupsContainer = document.getElementById('groupsContainer');
+            groupsContainer.innerHTML = '';
+            
+            Object.entries(tournamentGroups).forEach(([groupName, teams]) => {
+                const groupCard = document.createElement('div');
+                groupCard.style.backgroundColor = 'rgba(255,255,255,0.05)';
+                groupCard.style.padding = '20px';
+                groupCard.style.borderRadius = '8px';
+                groupCard.style.marginBottom = '20px';
+                groupCard.style.border = '1px solid rgba(255,255,255,0.1)';
+                
+                let teamsHTML = '';
+                teams.forEach(teamName => {
+                    const team = tournamentTeams.find(t => t.name === teamName);
+                    teamsHTML += `
+                        <div style="display: flex; justify-content: space-between; padding: 10px; background-color: rgba(255,255,255,0.05); border-radius: 4px; margin-bottom: 8px;">
+                            <div>${teamName}</div>
+                            <div style="color: rgba(255,255,255,0.7);">${team ? team.district : ''}</div>
+                        </div>
+                    `;
+                });
+                
+                groupCard.innerHTML = `
+                    <h4 style="color: var(--primary-red); margin-bottom: 15px;">GROUP ${groupName}</h4>
+                    <div>${teamsHTML}</div>
+                `;
+                
+                groupsContainer.appendChild(groupCard);
+            });
+        }
+
+        // Populate fixtures in the fixtures tab
+        function populateFixtures() {
+            const fixturesContainer = document.getElementById('fixturesContainer');
+            fixturesContainer.innerHTML = '';
+            
+            tournamentFixtures.forEach(fixture => {
+                const fixtureItem = document.createElement('div');
+                fixtureItem.style.backgroundColor = 'rgba(255,255,255,0.05)';
+                fixtureItem.style.padding = '15px';
+                fixtureItem.style.borderRadius = '8px';
+                fixtureItem.style.marginBottom = '15px';
+                fixtureItem.style.border = '1px solid rgba(255,255,255,0.1)';
+                
+                fixtureItem.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="font-weight: 600;">${fixture.team1}</div>
+                            <div style="color: var(--primary-red); font-weight: 700;">VS</div>
+                            <div style="font-weight: 600;">${fixture.team2}</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div>${fixture.date} • ${fixture.time}</div>
+                            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">${fixture.venue}</div>
+                            <div style="font-size: 0.8rem; color: var(--primary-red);">Group ${fixture.group}</div>
+                        </div>
+                    </div>
+                `;
+                
+                fixturesContainer.appendChild(fixtureItem);
+            });
+        }
+
+        // Setup team filtering
+        function setupTeamFilters() {
+            const teamSearch = document.getElementById('teamSearch');
+            const groupFilter = document.getElementById('groupFilter');
+            
+            teamSearch.addEventListener('input', filterTeams);
+            groupFilter.addEventListener('change', filterTeams);
+        }
+
+        function filterTeams() {
+            const searchTerm = document.getElementById('teamSearch').value.toLowerCase();
+            const groupFilter = document.getElementById('groupFilter').value;
+            
+            const teamCards = document.querySelectorAll('.team-card');
+            
+            teamCards.forEach(card => {
+                const teamName = card.getAttribute('data-name');
+                const teamGroup = card.getAttribute('data-group');
+                
+                const nameMatch = teamName.includes(searchTerm);
+                const groupMatch = groupFilter === 'all' || teamGroup === groupFilter;
+                
+                if (nameMatch && groupMatch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Setup tournament tabs
+        function setupTournamentTabs() {
+            const tournamentTabs = document.querySelectorAll('.tournament-tab');
+            const tournamentContents = document.querySelectorAll('.tournament-content');
+            
+            tournamentTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tournament-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tournamentTabs.forEach(t => t.classList.remove('active'));
+                    tournamentContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    document.getElementById(`${tabId}Tab`).classList.add('active');
+                });
+            });
+        }
+
+        // Tab functionality for Current Affairs
+        function initTabs() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    btn.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        }
+
+        // Sports tabs functionality
+        function initSportsTabs() {
+            const sportsTabs = document.querySelectorAll('.sports-tab');
+            
+            sportsTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    sportsTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                });
+            });
+        }
+
+        // News carousel functionality
+        function initCarousel() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const cards = document.querySelectorAll('.news-card');
+            let currentIndex = 0;
+            
+            function showCards() {
+                cards.forEach((card, index) => {
+                    if (index >= currentIndex && index < currentIndex + 3) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            
+            function updateCarousel() {
+                if (window.innerWidth >= 1200) {
+                    if (currentIndex > cards.length - 3) currentIndex = 0;
+                    if (currentIndex < 0) currentIndex = cards.length - 3;
+                    showCards();
+                } else if (window.innerWidth >= 768) {
+                    if (currentIndex > cards.length - 2) currentIndex = 0;
+                    if (currentIndex < 0) currentIndex = cards.length - 2;
+                    showCards();
+                } else {
+                    cards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                }
+            }
+            
+            nextBtn.addEventListener('click', () => {
+                currentIndex++;
+                updateCarousel();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                currentIndex--;
+                updateCarousel();
+            });
+            
+            updateCarousel();
+            window.addEventListener('resize', updateCarousel);
+        }
+
+        // Business slider functionality
+        function initBusinessSlider() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+            }
+            
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }, 5000);
+        }
+
+        // Dark mode toggle
+        function initDarkMode() {
+            const themeToggle = document.getElementById('themeToggle');
+            
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                
+                if (document.body.classList.contains('dark-mode')) {
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+            
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+            }
+        }
+
+        // Mobile menu toggle
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navigation = document.getElementById('mainNav');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                navigation.classList.toggle('active');
+            });
+            
+            const navLinks = navigation.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navigation.classList.remove('active');
+                });
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initTournamentDashboard();
+            initTabs();
+            initSportsTabs();
+            initCarousel();
+            initBusinessSlider();
+            initDarkMode();
+            initMobileMenu();
+            
+            // Set current year in footer
+            document.querySelector('.footer-bottom p').innerHTML = 
+                document.querySelector('.footer-bottom p').innerHTML.replace('2024', new Date().getFullYear());
+        });
+    </script>
+</body>
+</html>
